@@ -15,9 +15,9 @@ public class Food {
     
     private double price;
     
-    Food() {}
+    public Food() {}
 
-    Food(String name, double price) {
+    public Food(String name, double price) {
         this.name = name;
         this.price = price;
     }
@@ -30,19 +30,19 @@ public class Food {
         this.id = id;
     }
 
-    public String getFoodName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setFoodName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public double getFoodPrice() {
+    public double getPrice() {
         return this.price;
     }
 
-    public void setFoodPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

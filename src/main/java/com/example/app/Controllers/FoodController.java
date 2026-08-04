@@ -24,7 +24,7 @@ public class FoodController {
         return service.save(food);
     }
 
-    @GetMapping
+    @GetMapping("/items")
     public List<Food> viewFoods() {
         return service.getAll();
     }
