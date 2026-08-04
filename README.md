@@ -44,6 +44,19 @@ FoodD Backend is a production-ready REST API that powers the FoodD food delivery
 
 ---
 
+## Workflow Screenshots
+
+### Spring Boot
+![Spring Boot](./assets/screenshots/SpringBoot.png)
+
+### H2 Database
+![H2 Database](./assets/screenshots/H2.png)
+
+### Postman
+![Postman](./assets/screenshots/postman.png)
+
+---
+
 ## Architecture
 
 ### Three-Layer Architecture Pattern
