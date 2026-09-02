@@ -26,12 +26,16 @@ public class FoodService {
         return findFoodById(id);
     }
 
-    public Food updateFood(Long id, String foodName) {
-        Food existingFood = findFoodById(id);
+    public Food updateFood(Food food) {
 
-        existingFood.setName(foodName);
-        
-        return repo.save(existingFood);
+        Food existingFood = findFoodById(food.getId());
+
+        existingFood.setName(food.getName());
+        existingFood.setPrice(food.getPrice());
+
+        Food updatedFood = repo.save(existingFood);
+
+        return updatedFood;
     }
 
     public void deleteFood(Long id) {
