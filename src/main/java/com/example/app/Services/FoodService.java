@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.app.Entities.Food;
 import com.example.app.Repository.FoodRepository;
+import com.example.app.exception.FoodNotFoundException;
 
 import java.util.List;
 
@@ -19,5 +20,28 @@ public class FoodService {
 
     public List<Food> getAll() {
         return repo.findAll();
+    }
+
+    public Food getFoodById(Long id) {
+        return findFoodById(id);
+    }
+
+    public Food updateFood(Long id, String foodName) {
+        Food existingFood = findFoodById(id);
+
+        existingFood.setName(foodName);
+        
+        return repo.save(existingFood);
+    }
+
+    public void deleteFood(Long id) {
+        Food existingFood = findFoodById(id);
+        repo.delete(existingFood);
+    }
+
+    public Food findFoodById(Long id) {
+        Food food = repo.findById(id)
+                        .orElseThrow(() -> new FoodNotFoundException("Food with " + id + " is not available !"));
+        return food;
     }
 }
