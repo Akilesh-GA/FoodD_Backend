@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class FoodService {
+    
     @Autowired
     public FoodRepository repo;
 
@@ -38,14 +39,15 @@ public class FoodService {
         return updatedFood;
     }
 
-    public void deleteFood(Long id) {
+    public String deleteFood(Long id) {
         Food existingFood = findFoodById(id);
         repo.delete(existingFood);
+        return "Food with id " + id + " was deleted!";
     }
 
     public Food findFoodById(Long id) {
         Food food = repo.findById(id)
-                        .orElseThrow(() -> new FoodNotFoundException("Food with " + id + " is not available !"));
+                        .orElseThrow(() -> new FoodNotFoundException("Food with id " + id + " is not available!"));
         return food;
     }
 }
