@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.app.Repository.UserRepository;
 import com.example.app.dto.LoginRequest;
+import com.example.app.dto.LoginResponse;
 import com.example.app.dto.RegisterRequest;
 
 import com.example.app.Entities.User;
@@ -35,7 +36,7 @@ public class AuthService {
         return "User Registered successfully!";
     }
 
-    public String login(LoginRequest request) {
+    public LoginResponse login(LoginRequest request) {
 
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found!"));
@@ -52,8 +53,6 @@ public class AuthService {
 
         String token = jwtService.generateToken(user.getEmail());
 
-        System.out.println("JWT Token: " + token);
-
-        return "Login Successful!";
+        return new LoginResponse(token);
     }
 }
