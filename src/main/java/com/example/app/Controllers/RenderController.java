@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("render/")
 public class RenderController {
-    @GetMapping("health/")
+    @GetMapping("health")
     public String checkHealth() {
         return "Render is live";
     }
