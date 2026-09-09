@@ -29,7 +29,7 @@ public class FoodController {
         return service.getAll();
     }
 
-    @PostMapping("add-food")
+    @PostMapping("/add-food")
     public Food addFoods(@Valid @RequestBody Food food) {
         return service.save(food);
     }

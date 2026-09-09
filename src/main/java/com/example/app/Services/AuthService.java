@@ -10,7 +10,7 @@ import com.example.app.dto.RegisterRequest;
 
 import com.example.app.Entities.User;
 
-@Service 
+@Service
 public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
