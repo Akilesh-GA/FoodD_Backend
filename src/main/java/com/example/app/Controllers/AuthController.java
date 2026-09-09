@@ -20,12 +20,12 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("register")
+    @PostMapping("register/")
     public String registerUser(@RequestBody RegisterRequest request) {
         return authService.register(request);
     }
 
-    @PostMapping("login")
+    @PostMapping("login/")
     public ResponseEntity<LoginResponse> loginUser(@RequestBody LoginRequest request) {
         LoginResponse response = authService.login(request);
         return ResponseEntity.ok(response);
